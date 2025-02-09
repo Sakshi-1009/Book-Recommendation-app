@@ -1,0 +1,251 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('download\ \(4\).jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 15px 20px;
+    position: relative;
+}
+
+.top-bar h1 {
+    
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1; /* Makes the title take full width */
+}
+
+.controls {
+    position: absolute;
+    right: 20px; 
+    display: flex;
+    gap: 10px;
+}
+
+
+select, button {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background: #ff6b6b;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff3b3b;
+}
+
+/* Search Container */
+.search-container {
+    text-align: center;
+    padding: 15px;
+}
+
+input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Main Content Layout */
+.content {
+    display: flex;
+    padding: 20px;
+}
+
+/* Book List */
+#bookList {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.book {
+    background: #9c8282;
+    padding: 15px;
+    width: 220px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.book img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.read-btn, .add-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.read-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.add-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+/* Reading List (Sidebar) */
+.reading-list {
+    flex: 1;
+    padding: 15px;
+    background: #9c8282;
+    border-radius: 10px;
+    display: none;
+}
+
+.reading-list.visible {
+    display: block;
+}
+
+/* Reading List Styling */
+.reading-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.reading-list li {
+    margin-bottom: 8px;
+    background: #bc9b9b;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.reading-list li a {
+    color: white;
+    text-decoration: none;
+}
+
+.reading-list li:hover {
+    background: #444;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background: #f15f5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.toggle-btn:hover {
+    background: #0056b3;
+}
+
+.quote-box {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    margin: 20px auto;
+    padding: 15px;
+    max-width: 600px;
+    color: black;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* === Responsive Design === */
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+    .content {
+        flex-direction: column; /* Stack book list and reading list vertically */
+        align-items: center;
+    }
+
+    #bookList {
+        flex: none;
+        width: 100%;
+    }
+
+    .book {
+        width: 180px; /* Adjust book card size */
+    }
+
+    .reading-list {
+        width: 300px; /* Keep reading list same size */
+    }
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .controls {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .search-container input[type="text"] {
+        width: 80%;
+    }
+
+    .book {
+        width: 150px; /* Reduce book card size */
+    }
+
+    .reading-list {
+        width: 280px; /* Keep reading list same size */
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .top-bar h1 {
+        font-size: 20px;
+    }
+
+    .book {
+        width: 120px; /* Adjust book size further for small screens */
+        font-size: 14px;
+    }
+
+    .read-btn, .add-btn {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .reading-list {
+        width: 260px; /* Ensure reading list remains the same size */
+        padding: 10px;
+    }
+}
